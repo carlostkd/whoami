@@ -1,4 +1,4 @@
-# whoami — Public Profile Aggregator + AI Profiler
+# whoami | Public Profile Aggregator + AI Profiler
 
 ```
 ██╗    ██╗██╗  ██╗ ██████╗  █████╗ ███╗   ███╗██╗
@@ -9,7 +9,7 @@
  ╚══╝╚══╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝
 ```
 
-**Search a username or email across 17+ social networks, leak databases, and the dark web — then generate an AI personality profile from everything found.**
+**Search a username or email across 17+ social networks, leak databases, and the dark web  then generate an AI personality profile from everything found.**
 
 ---
 
@@ -20,7 +20,7 @@
 - **Deep web search**: IntelX (leaks/pastes/darknet) and Ahmia (Tor `.onion` sites)
 - **AI profile generation**: Sends collected data to an LLM (Anthropic, OpenAI, Google Gemini, Groq, Lumo, Ollama) for behavioral analysis
 - **Scan mode**: `--scan username` checks every platform automatically
-- **Two versions**: CLI (`osint_profiler.py`) and GUI (`osint_profiler_gui.py`)
+- **Two versions**: CLI (`whoami.py`) and GUI (`whoami_gui.py`)
 - **Rich formatted output**: Tables, panels, colored output via the `rich` library
 
 ---
@@ -29,7 +29,7 @@
 
 ```bash
 # Clone or copy the files
-git clone <repo>  # or just download osint_profiler.py and osint_profiler_gui.py
+git clone <repo>  # or just download whoami.py and whoami_gui.py
 
 # Install dependencies
 pip install requests
@@ -44,59 +44,59 @@ pip install anthropic openai google-genai groq
 # (tkinter is included with Python on most systems)
 ```
 
-No Docker, no config files — just run it.
+No Docker, no config files  just run it.
 
 > A pre-filled `.env.example` is included. Rename it to `.env` for easy configuration of API keys (IntelX, Reddit, Telegram, etc.).
 
 ---
 
-## Usage — CLI
+## Usage CLI
 
 ### Quick scan (all platforms)
 
 ```bash
-python osint_profiler.py --scan johndoe
-python osint_profiler.py --scan johndoe --ai --save
+python whoami.py --scan johndoe
+python whoami.py --scan johndoe --ai --save
 ```
 
 ### Individual platforms
 
 ```bash
-python osint_profiler.py --reddit torvalds
-python osint_profiler.py --github torvalds --hackernews tptacek
-python osint_profiler.py --bluesky alice.bsky.social --ai
-python osint_profiler.py --email user@example.com --ai --llm openai
-python osint_profiler.py --telegram username
-python osint_profiler.py --youtube @channel --ai
-python osint_profiler.py --twitter elonmusk --ai
-python osint_profiler.py --instagram username
-python osint_profiler.py --threads username
-python osint_profiler.py --pixelfed username
-python osint_profiler.py --peertube username
-python osint_profiler.py --lemmy username
-python osint_profiler.py --devto username
-python osint_profiler.py --medium @username
-python osint_profiler.py --pinterest username
-python osint_profiler.py --mastodon Gargron --mastodon-instance mastodon.social
+python whoami.py --reddit torvalds
+python whoami.py --github torvalds --hackernews tptacek
+python whoami.py --bluesky alice.bsky.social --ai
+python whoami.py --email user@example.com --ai --llm openai
+python whoami.py --telegram username
+python whoami.py --youtube @channel --ai
+python whoami.py --twitter elonmusk --ai
+python whoami.py --instagram username
+python whoami.py --threads username
+python whoami.py --pixelfed username
+python whoami.py --peertube username
+python whoami.py --lemmy username
+python whoami.py --devto username
+python whoami.py --medium @username
+python whoami.py --pinterest username
+python whoami.py --mastodon Gargron --mastodon-instance mastodon.social
 ```
 
 ### Deep web search
 
 ```bash
-python osint_profiler.py --reddit torvalds --intelx           # IntelX uses 'torvalds'
-python osint_profiler.py --intelx johndoe                     # IntelX only, inline query
-python osint_profiler.py --email user@example.com --darkweb   # Ahmia search
-python osint_profiler.py --github torvalds --intelx --darkweb --ai --save
+python whoami.py --reddit torvalds --intelx           # IntelX uses 'torvalds'
+python whoami.py --intelx johndoe                     # IntelX only, inline query
+python whoami.py --email user@example.com --darkweb   # Ahmia search
+python whoami.py --github torvalds --intelx --darkweb --ai --save
 ```
 
 ### AI profile
 
 ```bash
-python osint_profiler.py --scan johndoe --ai                              # Anthropic (default)
-python osint_profiler.py --scan johndoe --ai --llm openai                 # OpenAI
-python osint_profiler.py --scan johndoe --ai --llm google --llm-key AI... # Google Gemini
-python osint_profiler.py --scan johndoe --ai --llm groq                   # Groq
-python osint_profiler.py --scan johndoe --ai --llm ollama                 # Local LLM
+python whoami.py --scan johndoe --ai                              # Anthropic (default)
+python whoami.py --scan johndoe --ai --llm openai                 # OpenAI
+python whoami.py --scan johndoe --ai --llm google --llm-key AI... # Google Gemini
+python whoami.py --scan johndoe --ai --llm groq                   # Groq
+python whoami.py --scan johndoe --ai --llm ollama                 # Local LLM
 ```
 
 Set API keys via env vars instead of `--llm-key`:
@@ -124,7 +124,7 @@ export YOUTUBE_API_KEY="your-key"
 ## Usage — GUI
 
 ```bash
-python osint_profiler_gui.py
+python whoami_gui.py
 ```
 
 The GUI has two tabs:
@@ -222,8 +222,8 @@ Sending to LUMO for analysis...
 
 | File | Description |
 |------|-------------|
-| `osint_profiler.py` | CLI tool — all fetch logic, AI integration, output formatting |
-| `osint_profiler_gui.py` | Tkinter GUI — wraps the CLI functions in a visual interface |
+| `whoami.py` | CLI tool all fetch logic, AI integration, output formatting |
+| `whoami_gui.py` | Tkinter GUI — wraps the CLI functions in a visual interface |
 | `sources/` | Open_Intel investigation sources (paste, GitHub, GitLab scrapers) |
 | `crawler/`, `search/`, `extractor/` | Open_Intel back-end modules |
 
