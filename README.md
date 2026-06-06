@@ -237,3 +237,38 @@ Sending to LUMO for analysis...
 - `anthropic` / `openai` / `google-genai` / `groq` (optional, for AI profiles)
 - `beautifulsoup4` (optional, for Ahmia HTML fallback)
 - Tkinter (included with Python, for GUI)
+
+
+
+# whoami.py — Alternatives Comparison
+
+> Username / social media profile aggregation tools compared to whoami.
+
+| Tool | Type | Sites | Extracts profile data? | Dark web / leaks? | AI profiling? | GUI? | Fediverse? |
+|------|------|-------|----------------------|-------------------|---------------|------|------------|
+| **whoami** | CLI + GUI | 17 | ✅ Bio, followers, posts | ✅ Ahmia + IntelX | ✅ LLM profile | ✅ Tkinter | ✅ Mastodon, Pixelfed, PeerTube, Lemmy |
+| **Sherlock** | CLI | ~400 | ❌ Existence only | ❌ | ❌ | ❌ | ❌ |
+| **Maigret** | CLI | ~2500 | ✅ Partial (avatar, name) | ❌ | ❌ | ❌ | ❌ |
+| **Socialscan** | CLI | ~10 | ✅ Basic metadata | ❌ | ❌ | ❌ | ❌ |
+| **WhatsMyName** (Recon-ng) | CLI | ~300 | ❌ Existence only | ❌ | ❌ | ❌ | ❌ |
+| **Holmes** | CLI | ~150 | ❌ Existence only | ❌ | ❌ | ❌ | ❌ |
+| **SocialPath** | Web UI | ~10 | ✅ Bio, followers | ❌ | ❌ | ✅ Web UI | ❌ |
+| **Blackbird** | CLI | ~500 | ❌ Existence only | ❌ | ❌ | ❌ | ❌ |
+| **Linkook** | CLI | ~100 | ✅ Bio, avatar, followers | ❌ | ❌ | ❌ | ❌ |
+
+## When to use whoami over alternatives
+
+- You need **actual profile content** (bio, follower count, posts), not just "username exists"
+- You want **dark web / leak DB search** in the same run
+- You want an **AI-generated personality summary** from the collected data
+- You need a **GUI** for non-technical operators
+- You're targeting **fediverse platforms** (Mastodon, Pixelfed, PeerTube, Lemmy)
+- You want **one tool** instead of chaining Sherlock + IntelX + an LLM wrapper
+
+## When to use an alternative
+
+- **Sherlock / Maigret / Blackbird**: You need to check hundreds of sites for username availability (whoami only covers 17 curated platforms with deep extract
+ion)
+- **WhatsMyName**: You're already inside Recon-ng for a larger investigation
+- **Socialscan**: You want a quick, pip-installable existence check with zero config
+
